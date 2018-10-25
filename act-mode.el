@@ -1,21 +1,63 @@
 (defvar act-types
   '("uint256"
+    "uint"
+    "int"
     "uint48"
     "int256"
     "address"
     "bytes32"))
 
 (defvar act-keywords
-  '("behaviour" "interface" "types" "storage" "iff" "if" "returns" "balance"))
+  '("behaviour" "interface" "types" "storage" "iff" "if" "returns" "balance" "such that" "gas" "pc" "calls" "stack"))
+
+(defvar act-identifier-regexp
+  "\\([a-zA-Z0-9]\\|-\\)+")
+
+(defun match-regexp (re limit)
+  "Generic regular expression matching wrapper for RE with a given LIMIT."
+  (re-search-forward re
+                     limit ; search bound
+                     t     ; no error, return nil
+                     nil   ; do not repeat
+                     ))
+
+
+
+(defun act-match-behaviour-decl (limit)
+  "Search the buffer forward until LIMIT matching behaviour declarations.
+
+First match should be a keyword and second an identifier."
+  (match-regexp
+   (concat
+    " *\\(behaviour\\) +\\(" act-identifier-regexp "\\)")
+   limit))
+
+(defun act-match-interface-decl (limit)
+  "Search the buffer forward until LIMIT matching behaviour declarations.
+
+First match should be a keyword and second an identifier."
+  (match-regexp
+   (concat
+    " *\\(interface\\) +\\(" solidity-identifier-regexp "\\)")
+   limit))
+
+(defvar solidity-identifier-regexp
+  "\\([a-zA-z0-9]\\|_\\)+")
+
 
 (defvar act-font-lock-defaults
   `((
      ;; stuff between double quotes
      ("\"\\.\\*\\?" . font-lock-string-face)
      ;; : => + - * / == > < >= <= |-> are all special elements
-     (":\\|=>\\|+\\|-\\|*\\|/\\|==\\|>\\|<\\|>=\\|<=\\||->" . font-lock-keyword-face)
-     ( ,(regexp-opt act-keywords 'words) . font-lock-builtin-face)
+     (":\\|=>\\|+\\|-\\|*\\|/\\|==\\|<=\\|>=\\|>\\|<\\||->" . font-lock-builtin-face)
+     ( ,(regexp-opt act-keywords 'words) . font-lock-keyword-face)
      ( ,(regexp-opt act-types 'words) . font-lock-type-face)
+     (act-match-behaviour-decl (1 font-lock-keyword-face)
+                                 (2 font-lock-variable-name-face))
+     (act-match-interface-decl (1 font-lock-keyword-face)
+                                 (2 font-lock-variable-name-face))
+
      )))
 
 (defvar act-mode-syntax-table nil "Syntax table for `act-mode'.")

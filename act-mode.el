@@ -8,7 +8,7 @@
     "bytes32"))
 
 (defvar act-keywords
-  '("behaviour" "interface" "types" "storage" "iff" "if" "returns" "balance" "such that" "gas" "pc" "calls" "stack"))
+  '("behaviour" "interface" "types" "storage" "iff" "if" "for all" "returns" "balance" "such that" "gas" "pc" "calls" "stack"))
 
 (defvar act-identifier-regexp
   "\\([a-zA-Z0-9]\\|-\\)+")
@@ -38,10 +38,10 @@ First match should be a keyword and second an identifier."
 First match should be a keyword and second an identifier."
   (match-regexp
    (concat
-    " *\\(interface\\) +\\(" solidity-identifier-regexp "\\)")
+    " *\\(interface\\) +\\(" act-identifier-regexp "\\)")
    limit))
 
-(defvar solidity-identifier-regexp
+(defvar act-identifier-regexp
   "\\([a-zA-z0-9]\\|_\\)+")
 
 

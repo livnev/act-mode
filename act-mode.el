@@ -94,7 +94,7 @@ First match should be a keyword and second an identifier."
 )
 
 ;;;###autoload
-(add-to-list 'auto-mode-alist '("\\.act" . act-mode))
+(add-to-list 'auto-mode-alist '("\\.act$" . act-mode))
 
 (provide 'act-mode)
 

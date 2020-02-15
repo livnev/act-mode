@@ -10,7 +10,6 @@ Place `act-mode.el` into `~/.emacs.d/packages`, and then add the following to yo
 
 ```
 (load-library "act-mode/act-mode")
-(add-to-list 'auto-mode-alist '("\\.act" . act-mode))
 ```
 
 This makes `.act` files open with `act-mode`. It's recommended to use this together with the `poly-markdown-mode` package, which enables `act-mode` within the tagged code blocks of a literature markdown specification. All you need to do is install `poly-markdown-mode` and add the following to your prelude file:

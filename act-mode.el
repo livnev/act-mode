@@ -87,7 +87,7 @@ First match should be a keyword and second an identifier."
         synTable))
 
 ;;;###autoload
-(define-derived-mode act-mode fundamental-mode "Act specification"
+(define-derived-mode act-mode prog-mode "Act specification"
   "act-mode is a major mode for edting .act specifications."
   (setq font-lock-defaults act-font-lock-defaults)
 

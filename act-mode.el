@@ -11,14 +11,18 @@
 
 ;;; Code:
 
-(defvar act-types
-  '("uint256"
-    "uint"
-    "int"
-    "uint48"
-    "int256"
+(defvar act-types '(
     "address"
-    "bytes32"))
+    "bool"
+    "bytes32"
+    "int"
+    "int256"
+    "uint"
+    "uint32"
+    "uint48"
+    "uint112"
+    "uint256"
+))
 
 (defvar act-keywords
   '("behaviour" "interface" "types" "storage" "iff" "if" "for all" "returns" "balance" "such that" "gas" "pc" "calls" "stack"))

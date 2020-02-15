@@ -1,3 +1,16 @@
+;;; act-mode.el --- Major mode for act -*- lexical-binding: t -*-
+
+;; Copyright 2020 Lev Livnev and contributors
+;; Author: Lev Livnev <lev@liv.nev.org.uk>
+;; URL: https://github.com/livnev/act-mode
+;; Version: 0.0.1
+
+;;; Commentary:
+;;
+;; This package provides syntax highlighting for the act language.
+
+;;; Code:
+
 (defvar act-types
   '("uint256"
     "uint"
@@ -69,6 +82,7 @@ First match should be a keyword and second an identifier."
         (modify-syntax-entry ?\n "> b" synTable)
         synTable))
 
+;;;###autoload
 (define-derived-mode act-mode fundamental-mode "Act specification"
   "act-mode is a major mode for edting .act specifications."
   (setq font-lock-defaults act-font-lock-defaults)
@@ -79,4 +93,9 @@ First match should be a keyword and second an identifier."
   (setq comment-end "")
 )
 
+;;;###autoload
+(add-to-list 'auto-mode-alist '("\\.act" . act-mode))
+
 (provide 'act-mode)
+
+;;; act-mode.el ends here

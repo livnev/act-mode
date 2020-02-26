@@ -29,6 +29,7 @@
     "balance"
     "behaviour"
     "calls"
+    "else"
     "for all"
     "gas"
     "if"
@@ -39,7 +40,9 @@
     "stack"
     "storage"
     "such that"
+    "then"
     "types"
+    "where"
     ))
 
 (defvar act-identifier-regexp

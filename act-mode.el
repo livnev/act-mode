@@ -26,20 +26,20 @@
 
 (defvar act-keywords
   '(
-    "behaviour"
-    "interface"
-    "types"
-    "storage"
-    "iff"
-    "if"
-    "for all"
-    "returns"
     "balance"
-    "such that"
-    "gas"
-    "pc"
+    "behaviour"
     "calls"
+    "for all"
+    "gas"
+    "if"
+    "iff"
+    "interface"
+    "pc"
+    "returns"
     "stack"
+    "storage"
+    "such that"
+    "types"
     ))
 
 (defvar act-identifier-regexp

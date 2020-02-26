@@ -25,7 +25,22 @@
 ))
 
 (defvar act-keywords
-  '("behaviour" "interface" "types" "storage" "iff" "if" "for all" "returns" "balance" "such that" "gas" "pc" "calls" "stack"))
+  '(
+    "behaviour"
+    "interface"
+    "types"
+    "storage"
+    "iff"
+    "if"
+    "for all"
+    "returns"
+    "balance"
+    "such that"
+    "gas"
+    "pc"
+    "calls"
+    "stack"
+    ))
 
 (defvar act-identifier-regexp
   "\\([a-zA-Z0-9]\\|-\\)+")

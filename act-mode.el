@@ -30,6 +30,7 @@
     "behaviour"
     "calls"
     "else"
+    "fi"
     "for all"
     "gas"
     "if"
